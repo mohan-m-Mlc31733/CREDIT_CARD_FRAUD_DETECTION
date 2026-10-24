@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What We Offer / Services — FraudShield Intelligent Defenses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shared.css">
+  <style>
+    /* Service Gallery Specifics */
+    .gallery-section-title {
+      text-align: center;
+      margin: 80px auto 40px;
+      max-width: 800px;
+    }
+    .gallery-section-title h3 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -1px;
+      margin-bottom: 10px;
+    }
+    .gallery-section-title p {
+      color: #888888;
+      font-size: 0.95rem;
+    }
+
+    /* Modal Lightbox for Images */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(15px);
+      z-index: 999999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      cursor: pointer;
+    }
+    .lightbox-modal.active {
+      display: flex;
+    }
+    .lightbox-modal img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 16px;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.9);
+      border: 1px solid rgba(255,255,255,0.15);
+      animation: modalZoom 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes modalZoom {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 36px;
+      font-size: 2.2rem;
+      color: #fff;
+      cursor: pointer;
+      font-weight: 300;
+      transition: color 0.2s;
+    }
+    .lightbox-close:hover {
+      color: var(--accent-red);
+    }
+    .figure-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      z-index: 3;
+    }
+    .figure-click-hint {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      background: rgba(231, 76, 60, 0.85);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      z-index: 3;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: all 0.3s ease;
+    }
+    .img-animated-container:hover .figure-click-hint {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Custom Responsive Mouse Pointer -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Global Top Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="logo" data-cursor="link">
+        <span class="logo-icon">&#128737;</span>
+        <span class="logo-text">FraudShield</span>
+      </a>
+      <span class="badge">Solutions Suite</span>
+    </div>
+    <div class="nav-center">
+      <a href="index.html" class="nav-link" data-cursor="link">WHO WE ARE</a>
+      <a href="process.html" class="nav-link" data-cursor="link">PROCESS</a>
+      <a href="services.html" class="nav-link active" data-cursor="link">SERVICES</a>
+      <a href="testimonials.html" class="nav-link" data-cursor="link">TESTIMONIALS</a>
+      <a href="contact.html" class="nav-link" data-cursor="link">CONTACT</a>
+      <a href="scanner.html" class="nav-link" data-cursor="link" style="color:var(--accent-red);font-weight:700;">SCANNER</a>
+    </div>
+    <div class="nav-right">
+      <a href="login.html" class="btn-secondary" style="padding:8px 18px; font-size:0.75rem; margin-right:6px;" data-cursor="link">LOGIN</a>
+      <a href="scanner.html" class="nav-cta" data-cursor="link">START A SCAN</a>
+      <button class="nav-menu-btn" id="menuBtn" data-cursor="link" aria-label="Toggle Navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="mobile-link">WHO WE ARE</a>
+    <a href="process.html" class="mobile-link">PROCESS</a>
+    <a href="services.html" class="mobile-link">SERVICES</a>
+    <a href="testimonials.html" class="mobile-link">TESTIMONIALS</a>
+    <a href="contact.html" class="mobile-link">CONTACT</a>
+    <a href="scanner.html" class="mobile-link" style="color:var(--accent-red);">SCANNER</a>
+    <a href="login.html" class="mobile-link">LOGIN &rarr;</a>
+    <a href="scanner.html" class="mobile-link cta">START A SCAN &rarr;</a>
+  </div>
+
+  <!-- Ivory / Light Cream Header (Directly Matching Reference Image 3 Top) -->
+  <header class="services-header-light">
+    <h1 class="services-light-title" data-animate="fade-up">What we offer / Service</h1>
+    <p class="services-light-subtitle" data-animate="fade-up" data-delay="100">
+      End to end machine learning solutions to detect, explain, and neutralize transactional card fraud.
+    </p>
+  </header>
+
+  <!-- Dark Interactive Service Rows (Directly Matching Reference Image 3 Bottom) -->
+  <main class="services-accordion-dark">
+    <!-- Service Row 01 -->
+    <div class="service-row-strip" data-animate="fade-up">
+      <div class="service-strip-num">01</div>
+      <div>
+        <span class="service-strip-category">Detection Service</span>
+        <h2 class="service-strip-heading">Real-Time Scoring API</h2>
+      </div>
+      <div>
+        <a href="scanner.html" class="service-red-pill-btn magnetic" data-cursor="link">
+          Start your scan &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Service Feature Expanded Card 02 (Visual Showcase from Image 3) -->
+    <div class="service-feature-expanded" data-animate="fade-up" data-delay="100">
+      <div class="service-strip-num" style="align-self: flex-start; font-size: 1.4rem;">02</div>
+
+      <!-- Content Column -->
+      <div class="service-feature-info">
+        <span class="service-strip-category">Interpretability Service</span>
+        <h2 class="service-strip-heading" style="color: #fff; margin-bottom: 0;">SHAP Explainability Engine</h2>
+        <div>
+          <a href="scanner.html" class="service-red-pill-btn magnetic" style="margin-top: 6px;" data-cursor="link">
+            Explore analysis &rarr;
+          </a>
+        </div>
+
+        <div class="service-feature-stat">
+          75+ <span>features audited in real-time</span>
+        </div>
+
+        <p style="color: #aaa; font-size: 0.95rem; line-height: 1.6;">
+          Streamline your risk compliance and audit alerts around the clock with intelligent, transparent feature impact breakdowns. No black boxes.
+        </p>
+
+        <!-- Rounded Pill Tags (Exact Style from Image 3) -->
+        <div class="service-feature-tags">
+          <span class="service-tag-pill">Transaction Amount (+2.92)</span>
+          <span class="service-tag-pill">Gas & Transport (+2.30)</span>
+          <span class="service-tag-pill">Travel Anomaly (+0.53)</span>
+          <span class="service-tag-pill">Grocery POS (+0.52)</span>
+          <span class="service-tag-pill">State Velocity (+0.50)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service Row 03: Model Benchmarking -->
+    <div class="service-row-strip" data-animate="fade-up">
+      <div class="service-strip-num">03</div>
+      <div>
+        <span class="service-strip-category">Research Service</span>
+        <h2 class="service-strip-heading">Precision-Recall Benchmark</h2>
+      </div>
+      <div>
+        <a href="scanner.html" class="service-red-pill-btn magnetic" data-cursor="link">
+          Explore models &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Properly Formatted, Aligned, and Animated Research Image Gallery -->
+    <div class="gallery-section-title" data-animate="fade-up">
+      <h3>Empirical Validation Gallery</h3>
+      <p>All figures generated from 1,296,675 payment events and evaluated across 20,000 test transactions.</p>
+    </div>
+
+    <div class="services-gallery-grid" data-animate="fade-up">
+      <!-- PR Curves -->
+      <div class="img-animated-container tilt-card" data-cursor="view" onclick="openLightbox('results/figures/fig11_pr_curves.png')">
+        <div class="tilt-shine"></div>
+        <span class="figure-tag">Precision-Recall Curves</span>
+        <span class="figure-click-hint">Click to Enlarge &#128269;</span>
+        <img src="results/figures/fig11_pr_curves.png" alt="Precision-Recall Curves" class="img-animated-media" loading="lazy">
+        <div style="padding: 20px 24px; background: #141414; border-top: 1px solid rgba(255,255,255,0.06);">
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 6px;">Precision-Recall Trajectories</h4>
+          <p style="color: #888; font-size: 0.85rem; line-height: 1.5;">
+            XGBoost achieves PR-AUC 0.679, outperforming Random Forest (0.696) and Logistic Regression (0.208) on severe class imbalance (0.58% fraud).
+          </p>
+        </div>
+      </div>
+
+      <!-- Confusion Matrix -->
+      <div class="img-animated-container tilt-card" data-cursor="view" onclick="openLightbox('results/figures/fig12_confusion_matrix.png')">
+        <div class="tilt-shine"></div>
+        <span class="figure-tag">Confusion Matrix</span>
+        <span class="figure-click-hint">Click to Enlarge &#128269;</span>
+        <img src="results/figures/fig12_confusion_matrix.png" alt="Confusion Matrix" class="img-animated-media" loading="lazy">
+        <div style="padding: 20px 24px; background: #141414; border-top: 1px solid rgba(255,255,255,0.06);">
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 6px;">XGBoost Test Matrix</h4>
+          <p style="color: #888; font-size: 0.85rem; line-height: 1.5;">
+            Detected 67 out of 91 real fraudulent attacks with only 53 false positives out of 19,909 legitimate checkouts (99.6% accuracy).
+          </p>
+        </div>
+      </div>
+
+      <!-- SHAP Feature Summary -->
+      <div class="img-animated-container tilt-card" data-cursor="view" onclick="openLightbox('results/figures/fig13_shap_summary.png')">
+        <div class="tilt-shine"></div>
+        <span class="figure-tag">SHAP Global Summary</span>
+        <span class="figure-click-hint">Click to Enlarge &#128269;</span>
+        <img src="results/figures/fig13_shap_summary.png" alt="SHAP Summary Explainer" class="img-animated-media" loading="lazy">
+        <div style="padding: 20px 24px; background: #141414; border-top: 1px solid rgba(255,255,255,0.06);">
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 6px;">SHAP Feature Attribution</h4>
+          <p style="color: #888; font-size: 0.85rem; line-height: 1.5;">
+            Transaction amount (+2.92), gas/transport (+2.30), and travel (+0.53) drive 85% of anomalous fraud score distributions.
+          </p>
+        </div>
+      </div>
+
+      <!-- EDA Distribution & Weekly Rate -->
+      <div class="img-animated-container tilt-card" data-cursor="view" onclick="openLightbox('results/figures/eda_amount_and_weekly_rate.png')">
+        <div class="tilt-shine"></div>
+        <span class="figure-tag">EDA Dynamics</span>
+        <span class="figure-click-hint">Click to Enlarge &#128269;</span>
+        <img src="results/figures/eda_amount_and_weekly_rate.png" alt="EDA Amount and Weekly Rate" class="img-animated-media" loading="lazy">
+        <div style="padding: 20px 24px; background: #141414; border-top: 1px solid rgba(255,255,255,0.06);">
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 6px;">Volume & Weekly Fraud Rate</h4>
+          <p style="color: #888; font-size: 0.85rem; line-height: 1.5;">
+            Distribution curves reveal significant spikes in fraudulent velocity during late weekend evenings and high-value bursts.
+          </p>
+        </div>
+      </div>
+
+      <!-- Tri-Model Confusion Matrices -->
+      <div class="img-animated-container tilt-card" data-cursor="view" onclick="openLightbox('results/figures/three_model_confusion_matrices.png')">
+        <div class="tilt-shine"></div>
+        <span class="figure-tag">Colab Multi-Model Matrix</span>
+        <span class="figure-click-hint">Click to Enlarge &#128269;</span>
+        <img src="results/figures/three_model_confusion_matrices.png" alt="Tri-Model Confusion Matrices" class="img-animated-media" loading="lazy">
+        <div style="padding: 20px 24px; background: #141414; border-top: 1px solid rgba(255,255,255,0.06);">
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 6px;">Tri-Model Confusion Matrices</h4>
+          <p style="color: #888; font-size: 0.85rem; line-height: 1.5;">
+            Side-by-side Colab evaluation across Logistic Regression (46 TP), Random Forest (63 TP), and XGBoost (67 TP) on 20,000 transactions.
+          </p>
+        </div>
+      </div>
+
+      <!-- Benchmark Metrics Comparison -->
+      <div class="img-animated-container tilt-card" data-cursor="view" onclick="openLightbox('results/figures/three_model_metrics.png')">
+        <div class="tilt-shine"></div>
+        <span class="figure-tag">Colab Metric Comparison</span>
+        <span class="figure-click-hint">Click to Enlarge &#128269;</span>
+        <img src="results/figures/three_model_metrics.png" alt="Three Model Metrics" class="img-animated-media" loading="lazy">
+        <div style="padding: 20px 24px; background: #141414; border-top: 1px solid rgba(255,255,255,0.06);">
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 6px;">Empirical Metric Trajectories</h4>
+          <p style="color: #888; font-size: 0.85rem; line-height: 1.5;">
+            Evaluated Precision, Recall, F1, PR-AUC, and ROC-AUC benchmarks validating XGBoost as the optimal champion architecture.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service Row 04: Dynamic Thresholds -->
+    <div class="service-row-strip" data-animate="fade-up" style="margin-top: 40px;">
+      <div class="service-strip-num">04</div>
+      <div>
+        <span class="service-strip-category">Optimization Service</span>
+        <h2 class="service-strip-heading">Dynamic Threshold Governance</h2>
+      </div>
+      <div>
+        <a href="scanner.html" class="service-red-pill-btn magnetic" data-cursor="link">
+          Test thresholds &rarr;
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Lightbox Modal for Full-Size Image Preview -->
+  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightboxImg" src="" alt="Enlarged Research Figure">
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3 class="footer-logo">FraudShield</h3>
+        <p class="footer-desc">
+          State of the art card fraud scoring, feature attribution, and empirical ML operations for enterprise FinTech.
+        </p>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Subscribe to Our Research Newsletter</h4>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email" class="newsletter-input" data-cursor="link">
+          <button class="newsletter-btn" data-cursor="link">Subscribe &rarr;</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h5>Main Pages</h5>
+        <a href="index.html" data-cursor="link">Who We Are</a>
+        <a href="process.html" data-cursor="link">Our Process</a>
+        <a href="services.html" data-cursor="link">Services & SHAP</a>
+        <a href="testimonials.html" data-cursor="link">Client Testimonials</a>
+        <a href="contact.html" data-cursor="link">Contact</a>
+        <a href="scanner.html" data-cursor="link">AI SCANNER</a>
+        <a href="login.html" data-cursor="link">Terminal Login</a>
+      </div>
+      <div class="footer-col">
+        <h5>Services Offered</h5>
+        <a href="#01" data-cursor="link">Real-Time Scoring API</a>
+        <a href="#02" data-cursor="link">SHAP Explainability</a>
+        <a href="#03" data-cursor="link">PR-AUC Benchmarks</a>
+        <a href="#04" data-cursor="link">Dynamic Thresholding</a>
+      </div>
+      <div class="footer-col">
+        <h5>Visual Assets</h5>
+        <a href="#" data-cursor="link">SHAP Global Summary</a>
+        <a href="#" data-cursor="link">Precision-Recall Curves</a>
+        <a href="#" data-cursor="link">Confusion Matrix Analysis</a>
+        <a href="#" data-cursor="link">EDA Dynamics & Distribution</a>
+      </div>
+      <div class="footer-col">
+        <h5>Social Links</h5>
+        <a href="#" data-cursor="link">GitHub</a>
+        <a href="#" data-cursor="link">LinkedIn</a>
+        <a href="#" data-cursor="link">Twitter / X</a>
+      </div>
+      <div class="footer-col">
+        <h5>Customer Support & Inquiries</h5>
+        <div class="footer-contact">
+          <span>&#128222;</span>
+          <div>
+            <strong>020 5691 2456</strong>
+            <small>Monday to Friday, 9am to 5pm</small>
+          </div>
+        </div>
+        <div class="footer-contact">
+          <span>&#128233;</span>
+          <div>
+            <strong>help@fraudshield.ai</strong>
+            <small>We aim to reply in 24 hours</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-giant-text">FraudShield</div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/static-api.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightboxModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  </script>
+</body>
+</html>

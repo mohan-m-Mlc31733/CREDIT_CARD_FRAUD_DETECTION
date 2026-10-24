@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — FraudShield Enterprise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shared.css">
+  <style>
+    .login-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 100px 20px 60px;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 35%, #161616 0%, #070707 100%);
+    }
+
+    .login-canvas {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .login-card-container {
+      position: relative;
+      z-index: 5;
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .login-card {
+      background: rgba(18, 18, 20, 0.9);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 40px 36px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(231, 76, 60, 0.1);
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .login-brand-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #ff3b30, #ff6b35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin: 0 auto 14px;
+      box-shadow: 0 10px 25px rgba(255, 59, 48, 0.4);
+    }
+
+    .login-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .login-sub {
+      color: #888888;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .login-input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .login-input-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #bbb;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .input-wrap input {
+      width: 100%;
+      background: #18181a;
+      border: 1.5px solid #2e2e34;
+      color: #fff;
+      padding: 13px 16px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .input-wrap input:focus {
+      border-color: var(--accent-red);
+      box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+    }
+
+    .toggle-pw-btn {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #888;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 4px 6px;
+    }
+
+    .toggle-pw-btn:hover {
+      color: #fff;
+    }
+
+    .login-options-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      margin-bottom: 24px;
+    }
+
+    .remember-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #999;
+      cursor: pointer;
+    }
+
+    .remember-box input[type="checkbox"] {
+      accent-color: var(--accent-red);
+      width: 15px;
+      height: 15px;
+    }
+
+    .btn-login-action {
+      width: 100%;
+      background: linear-gradient(135deg, #ff3b30, #ff6b35);
+      color: #fff;
+      padding: 15px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-login-action:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(255, 59, 48, 0.4);
+    }
+
+    .demo-hint-box {
+      margin-top: 20px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px dashed rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      font-size: 0.78rem;
+      color: #888;
+      text-align: center;
+    }
+
+    .demo-hint-box strong {
+      color: var(--accent-orange);
+      cursor: pointer;
+    }
+
+    .demo-hint-box strong:hover {
+      text-decoration: underline;
+    }
+
+    .login-status-msg {
+      display: none;
+      padding: 12px;
+      border-radius: 10px;
+      margin-top: 16px;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .login-status-msg.success {
+      display: block;
+      background: rgba(46, 204, 113, 0.15);
+      border: 1px solid rgba(46, 204, 113, 0.4);
+      color: #2ecc71;
+    }
+
+    .login-status-msg.error {
+      display: block;
+      background: rgba(231, 76, 60, 0.15);
+      border: 1px solid rgba(231, 76, 60, 0.4);
+      color: #ff3b30;
+    }
+  </style>
+</head>
+<body>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Custom Responsive Mouse Pointer -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Global Top Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="logo" data-cursor="link">
+        <span class="logo-icon">&#128737;</span>
+        <span class="logo-text">FraudShield</span>
+      </a>
+      <span class="badge">Security Login</span>
+    </div>
+    <div class="nav-center">
+      <a href="index.html" class="nav-link" data-cursor="link">WHO WE ARE</a>
+      <a href="process.html" class="nav-link" data-cursor="link">PROCESS</a>
+      <a href="services.html" class="nav-link" data-cursor="link">SERVICES</a>
+      <a href="testimonials.html" class="nav-link" data-cursor="link">TESTIMONIALS</a>
+      <a href="contact.html" class="nav-link" data-cursor="link">CONTACT</a>
+      <a href="scanner.html" class="nav-link" data-cursor="link" style="color:var(--accent-red);font-weight:700;">SCANNER</a>
+    </div>
+    <div class="nav-right">
+      <a href="scanner.html" class="nav-cta" data-cursor="link">START A SCAN</a>
+      <button class="nav-menu-btn" id="menuBtn" data-cursor="link" aria-label="Toggle Navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="mobile-link">WHO WE ARE</a>
+    <a href="process.html" class="mobile-link">PROCESS</a>
+    <a href="services.html" class="mobile-link">SERVICES</a>
+    <a href="testimonials.html" class="mobile-link">TESTIMONIALS</a>
+    <a href="contact.html" class="mobile-link">CONTACT</a>
+    <a href="scanner.html" class="mobile-link" style="color:var(--accent-red);">SCANNER</a>
+    <a href="scanner.html" class="mobile-link cta">START A SCAN &rarr;</a>
+  </div>
+
+  <!-- Main Login View -->
+  <main class="login-wrapper">
+    <canvas class="login-canvas" id="heroCanvas"></canvas>
+
+    <div class="login-card-container" data-animate="fade-up">
+      <div class="login-card">
+        <div class="login-header">
+          <div class="login-brand-icon">&#128737;</div>
+          <h1 class="login-title">Sign In</h1>
+          <p class="login-sub">Enter your credentials to unlock the AI Transaction Scanner.</p>
+        </div>
+
+        <form id="simpleLoginForm" onsubmit="handleSimpleLogin(event)">
+          <div class="login-input-group">
+            <label for="username">Username</label>
+            <div class="input-wrap">
+              <input type="text" id="username" placeholder="admin" required autofocus autocomplete="username" data-cursor="link">
+            </div>
+          </div>
+
+          <div class="login-input-group">
+            <label for="password">Password</label>
+            <div class="input-wrap">
+              <input type="password" id="password" placeholder="admin123" required autocomplete="current-password" data-cursor="link">
+              <button type="button" class="toggle-pw-btn" onclick="togglePasswordVisibility()">Show</button>
+            </div>
+          </div>
+
+          <div class="login-options-row">
+            <label class="remember-box">
+              <input type="checkbox" id="rememberMe" checked>
+              <span>Remember me</span>
+            </label>
+            <span style="color:#666; font-size:0.78rem;">TLS Encrypted</span>
+          </div>
+
+          <button type="submit" class="btn-login-action magnetic" id="loginBtn" data-cursor="link">
+            Sign In &rarr;
+          </button>
+
+          <div class="login-status-msg" id="loginStatusMsg"></div>
+        </form>
+
+        <div class="demo-hint-box">
+          Quick Demo: <strong onclick="fillSimpleDemo()">Click here to Auto-Fill (admin / admin123)</strong>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/static-api.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function togglePasswordVisibility() {
+      const pw = document.getElementById('password');
+      const btn = document.querySelector('.toggle-pw-btn');
+      if (pw.type === 'password') {
+        pw.type = 'text';
+        btn.textContent = 'Hide';
+      } else {
+        pw.type = 'password';
+        btn.textContent = 'Show';
+      }
+    }
+
+    function fillSimpleDemo() {
+      document.getElementById('username').value = 'admin';
+      document.getElementById('password').value = 'admin123';
+      const status = document.getElementById('loginStatusMsg');
+      status.className = 'login-status-msg success';
+      status.innerHTML = '&#10003; Credentials filled! Click <strong>Sign In</strong> to proceed.';
+    }
+
+    async function handleSimpleLogin(e) {
+      e.preventDefault();
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+      const status = document.getElementById('loginStatusMsg');
+      const btn = document.getElementById('loginBtn');
+
+      if (!user || !pass) {
+        status.className = 'login-status-msg error';
+        status.textContent = 'Please enter both username and password.';
+        return;
+      }
+
+      btn.textContent = 'Authenticating...';
+      btn.style.pointerEvents = 'none';
+
+      // Call Flask Backend /api/login on the exact same port
+      try {
+        const res = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: user, password: pass })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          sessionStorage.setItem('fraudshield_logged_in', 'true');
+          sessionStorage.setItem('fraudshield_user', data.user || user);
+          if (data.token) sessionStorage.setItem('fraudshield_token', data.token);
+          status.className = 'login-status-msg success';
+          status.innerHTML = `&#10003; <strong>Backend Authenticated!</strong> Welcome, ${data.user || user}. Redirecting to Scanner...`;
+          setTimeout(() => { window.location.href = 'scanner.html'; }, 600);
+          return;
+        }
+      } catch (err) {
+        console.warn('Backend /api/login offline, using client fallback:', err);
+      }
+
+      // Client-side fallback
+      sessionStorage.setItem('fraudshield_logged_in', 'true');
+      sessionStorage.setItem('fraudshield_user', user);
+      status.className = 'login-status-msg success';
+      status.innerHTML = `&#10003; <strong>Login successful!</strong> Welcome, ${user}. Redirecting to Scanner...`;
+      setTimeout(() => { window.location.href = 'scanner.html'; }, 600);
+    }
+
+    // If already logged in, show status
+    if (sessionStorage.getItem('fraudshield_logged_in') === 'true') {
+      const user = sessionStorage.getItem('fraudshield_user') || 'Admin';
+      const status = document.getElementById('loginStatusMsg');
+      status.className = 'login-status-msg success';
+      status.innerHTML = `You are currently logged in as <strong>${user}</strong>. <a href="scanner.html" style="color:#2ecc71; text-decoration:underline;">Go to Scanner &rarr;</a>`;
+    }
+  </script>
+</body>
+</html>

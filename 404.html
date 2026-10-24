@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found · FraudShield</title>
+  <script>
+    // Send unknown paths back to the home page of this site (works for user and project pages)
+    (function () {
+      var parts = location.pathname.split('/').filter(Boolean);
+      var base = location.hostname.endsWith('github.io') && parts.length ? '/' + parts[0] + '/' : '/';
+      location.replace(base + 'index.html');
+    })();
+  </script>
+</head>
+<body style="background:#0a0a0a;color:#eee;font-family:system-ui,sans-serif;text-align:center;padding:80px 20px">
+  <p>Page not found. <a href="index.html" style="color:#e74c3c">Go to FraudShield home</a></p>
+</body>
+</html>

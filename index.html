@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FraudShield — AI Credit Card Fraud Detection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shared.css">
+</head>
+<body>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Custom Responsive Mouse Pointer -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Global Top Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="logo" data-cursor="link">
+        <span class="logo-icon">🛡️</span>
+        <span class="logo-text">FraudShield</span>
+      </a>
+      <span class="badge">Built With Purpose</span>
+    </div>
+    <div class="nav-center">
+      <a href="index.html" class="nav-link active" data-cursor="link">WHO WE ARE</a>
+      <a href="process.html" class="nav-link" data-cursor="link">PROCESS</a>
+      <a href="services.html" class="nav-link" data-cursor="link">SERVICES</a>
+      <a href="testimonials.html" class="nav-link" data-cursor="link">TESTIMONIALS</a>
+      <a href="contact.html" class="nav-link" data-cursor="link">CONTACT</a>
+      <a href="scanner.html" class="nav-link" data-cursor="link" style="color:var(--accent-red);font-weight:700;">SCANNER</a>
+    </div>
+    <div class="nav-right">
+      <a href="login.html" class="btn-secondary" style="padding:8px 18px; font-size:0.75rem; margin-right:6px;" data-cursor="link">LOGIN</a>
+      <a href="scanner.html" class="nav-cta" data-cursor="link">START A SCAN</a>
+      <button class="nav-menu-btn" id="menuBtn" data-cursor="link" aria-label="Toggle Navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="mobile-link">WHO WE ARE</a>
+    <a href="process.html" class="mobile-link">PROCESS</a>
+    <a href="services.html" class="mobile-link">SERVICES</a>
+    <a href="testimonials.html" class="mobile-link">TESTIMONIALS</a>
+    <a href="contact.html" class="mobile-link">CONTACT</a>
+    <a href="login.html" class="mobile-link">LOGIN &rarr;</a>
+    <a href="scanner.html" class="mobile-link cta">START A SCAN ↗</a>
+  </div>
+
+  <!-- Hero Section (Strictly Reference Image 1) -->
+  <main class="hero-wrapper" id="hero">
+    <canvas class="hero-canvas" id="heroCanvas"></canvas>
+    <div class="hero-noise-overlay"></div>
+
+    <!-- Top Metadata Bar -->
+    <div class="hero-top-meta" data-animate="fade-up">
+      <span>2024–26©</span>
+      <div class="hero-services-pills">
+        <span>01. REAL-TIME DETECTION</span>
+        <span>02. ML-POWERED ANALYSIS</span>
+        <span>03. BEHAVIORAL SCORING</span>
+      </div>
+      <div class="hero-status-tag">
+        <span>ACCURACY <span class="bars">|||||</span> 99.6%</span>
+      </div>
+    </div>
+
+    <!-- Center Hero Typography (Exact Image 1 "ñeiden" with Red Script Overlay) -->
+    <div class="hero-main">
+      <div class="hero-massive-title-box">
+        <h1 class="hero-massive-title" data-animate="scale-up">FraudShield</h1>
+        <div class="hero-script-overlay">less noise. more direction.</div>
+      </div>
+      <p class="hero-lead-text" data-animate="fade-up" data-delay="150">
+        We help financial institutions make better fraud decisions, build stronger ML defenses, and eliminate transactional risks with verified confidence.
+      </p>
+    </div>
+
+    <!-- Bottom Deck Controls -->
+    <div class="hero-bottom-deck" data-animate="fade-up" data-delay="200">
+      <a href="scanner.html" class="hero-start-btn magnetic" data-cursor="card">
+        <span>START A SCAN</span>
+        <span class="btn-cross">+</span>
+      </a>
+
+      <!-- Reviews Rating Badge -->
+      <div class="hero-reviews-badge">
+        <div class="hero-avatars-cluster">
+          <div class="hero-avatar-circle av-1">XG</div>
+          <div class="hero-avatar-circle av-2">RF</div>
+          <div class="hero-avatar-circle av-3">LR</div>
+          <div class="hero-avatar-circle av-count">80+</div>
+        </div>
+        <div class="hero-rating-details">
+          <div class="hero-rating-stars">★★★★★ 4.95/5</div>
+          <div class="hero-rating-subtext">BASED ON 1.3M+ TRANSACTIONS</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Partners / Tech Stack Ticker -->
+    <div class="hero-partners-banner" data-animate="fade-up" data-delay="300">
+      <div class="hero-partners-list">
+        <span>⚡ XGBoost (PR-AUC 0.679)</span>
+        <span>🌲 Random Forest</span>
+        <span>📊 SHAP Explainability</span>
+        <span>🛡️ scikit-learn</span>
+        <span>📑 IEEE Transactions</span>
+        <span>🌐 Real-Time FDB</span>
+      </div>
+      <a href="contact.html" class="hero-pricing-pill" data-cursor="link">GET FRAUDSHIELD FROM $99 ↗</a>
+    </div>
+  </main>
+
+  <!-- Key Statistics & Model Summary Preview -->
+  <section style="background: #0d0d0d; padding: 100px 40px; border-top: 1px solid rgba(255,255,255,0.06);">
+    <div class="section-container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 50px; flex-wrap: wrap; gap: 20px;">
+        <div>
+          <span style="color: var(--accent-red); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;">PROVEN PERFORMANCE</span>
+          <h2 class="section-title italic" style="margin-top: 8px;">1.3M+ Transactions Evaluated</h2>
+        </div>
+        <a href="process.html" class="btn-secondary magnetic" data-cursor="link">View Our Process ↗</a>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+        <div class="tilt-card" style="background: #141414; padding: 36px 28px; border-radius: 20px; border: 1px solid #222;" data-animate="fade-up" data-cursor="card">
+          <div class="tilt-shine"></div>
+          <span style="font-size: 2.6rem;">🎯</span>
+          <h3 style="font-size: 2.8rem; font-weight: 900; margin: 16px 0 6px; color: #fff;">
+            <span class="counter" data-target="99.6" data-decimals="1" data-suffix="%">0%</span>
+          </h3>
+          <p style="color: #999; font-size: 0.95rem;">Test Accuracy across 20,000 held-out evaluation transactions.</p>
+        </div>
+
+        <div class="tilt-card" style="background: #141414; padding: 36px 28px; border-radius: 20px; border: 1px solid #222;" data-animate="fade-up" data-delay="100" data-cursor="card">
+          <div class="tilt-shine"></div>
+          <span style="font-size: 2.6rem;">⚡</span>
+          <h3 style="font-size: 2.8rem; font-weight: 900; margin: 16px 0 6px; color: var(--accent-red);">
+            <span class="counter" data-target="73.6" data-decimals="1" data-suffix="%">0%</span>
+          </h3>
+          <p style="color: #999; font-size: 0.95rem;">Fraud Recall Rate at optimal threshold (0.196) catching 3 of 4 fraud attacks.</p>
+        </div>
+
+        <div class="tilt-card" style="background: #141414; padding: 36px 28px; border-radius: 20px; border: 1px solid #222;" data-animate="fade-up" data-delay="200" data-cursor="card">
+          <div class="tilt-shine"></div>
+          <span style="font-size: 2.6rem;">📈</span>
+          <h3 style="font-size: 2.8rem; font-weight: 900; margin: 16px 0 6px; color: #fff;">
+            <span class="counter" data-target="0.995" data-decimals="3" data-suffix="">0</span>
+          </h3>
+          <p style="color: #999; font-size: 0.95rem;">ROC-AUC score confirming near-perfect discriminative capability.</p>
+        </div>
+
+        <div class="tilt-card" style="background: #141414; padding: 36px 28px; border-radius: 20px; border: 1px solid #222;" data-animate="fade-up" data-delay="300" data-cursor="card">
+          <div class="tilt-shine"></div>
+          <span style="font-size: 2.6rem;">🔍</span>
+          <h3 style="font-size: 2.8rem; font-weight: 900; margin: 16px 0 6px; color: var(--accent-orange);">
+            <span class="counter" data-target="75" data-decimals="0" data-suffix="+">0</span>
+          </h3>
+          <p style="color: #999; font-size: 0.95rem;">Features engineered & SHAP values computed for explainable auditing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer class="footer" id="contact">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3 class="footer-logo">FraudShield</h3>
+        <p class="footer-desc">
+          High-precision, IEEE research-grade credit card fraud prevention system powered by XGBoost, Random Forest, and explainable AI.
+        </p>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Subscribe to Our Research Newsletter</h4>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email" class="newsletter-input" data-cursor="link">
+          <button class="newsletter-btn" data-cursor="link">Subscribe ↗</button>
+        </div>
+        <p class="newsletter-note">No spam. Only algorithm updates and security releases.</p>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h5>Main Pages</h5>
+        <a href="index.html" data-cursor="link">Who We Are</a>
+        <a href="process.html" data-cursor="link">Our Process</a>
+        <a href="services.html" data-cursor="link">Services & SHAP</a>
+        <a href="testimonials.html" data-cursor="link">Client Testimonials</a>
+        <a href="contact.html" data-cursor="link">Contact & Live SCANNER</a>
+      </div>
+      <div class="footer-col">
+        <h5>ML Models</h5>
+        <a href="services.html" data-cursor="link">XGBoost (Best Selected)</a>
+        <a href="services.html" data-cursor="link">Random Forest</a>
+        <a href="services.html" data-cursor="link">Logistic Regression</a>
+        <a href="services.html" data-cursor="link">Ablation Studies</a>
+      </div>
+      <div class="footer-col">
+        <h5>Research Artifacts</h5>
+        <a href="services.html" data-cursor="link">Empirical Gallery</a>
+        <a href="services.html" data-cursor="link">Precision-Recall Curves</a>
+        <a href="services.html" data-cursor="link">Confusion Matrix Analysis</a>
+        <a href="services.html" data-cursor="link">SHAP Global Explainability</a>
+      </div>
+      <div class="footer-col">
+        <h5>Social Links</h5>
+        <a href="#" data-cursor="link">GitHub</a>
+        <a href="#" data-cursor="link">LinkedIn</a>
+        <a href="#" data-cursor="link">Twitter / X</a>
+        <a href="#" data-cursor="link">HuggingFace</a>
+      </div>
+      <div class="footer-col">
+        <h5>Have a question?</h5>
+        <div class="footer-contact">
+          <span>📞</span>
+          <div>
+            <strong>020 5691 2456</strong>
+            <small>Monday to Friday, 9am to 5pm</small>
+          </div>
+        </div>
+        <div class="footer-contact">
+          <span>📧</span>
+          <div>
+            <strong>help@fraudshield.ai</strong>
+            <small>We aim to reply in 24 hours</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-giant-text">FraudShield</div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/static-api.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

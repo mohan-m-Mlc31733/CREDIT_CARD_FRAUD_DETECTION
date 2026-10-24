@@ -1,0 +1,42 @@
+Python 3.13.16 | scikit-learn 1.6.1 | imblearn True | xgboost True | shap True
+Settings: SEED=42 SAMPLE_FRAC=0.3 FAST=True ABLATION=True
+Loaded FDB task 'sparknov'
+Train shape (1296675, 23) | Test shape (20000, 22)
+Label: EVENT_LABEL | Time: EVENT_TIMESTAMP
+Numeric (7): ['amt', 'zip', 'lat', 'long', 'city_pop', 'merch_lat', 'merch_long']
+Categorical (3): ['category', 'gender', 'state']
+Excluded (ID / free text / high cardinality): ['city', 'dob', 'job', 'ENTITY_ID', 'ENTITY_TYPE', 'EVENT_ID', 'LABEL_TIMESTAMP', 'cc_num', 'first', 'last', 'street']
+Exact duplicate rows in FDB training data (removed before splitting): 0
+Chronological split: fit data up to 2021-12-03 17:53:52+00:00, validation from 2021-12-03 17:54:44+00:00
+Fit data subsampled to 30% (stratified): 330,651 of 1,102,173 rows
+Grid search Logistic Regression: 4 settings x 5 folds ...
+  done in 1.8 min | best {'C': 0.1, 'class_weight': None}
+Grid search Random Forest: 4 settings x 5 folds ...
+  done in 91.8 min | best {'class_weight': 'balanced', 'max_depth': None, 'min_samples_leaf': 1, 'n_estimators': 200}
+Grid search XGBoost: 8 settings x 5 folds ...
+  done in 9.4 min | best {'learning_rate': 0.05, 'max_depth': 7, 'n_estimators': 300, 'scale_pos_weight': 1}
+SELECTED MODEL (highest validation PR-AUC; rule fixed before testing): XGBoost
+  ablation E1 Logistic Regression done
+  ablation E2 Logistic Regression done
+  ablation E3 Logistic Regression done
+  ablation E4 Logistic Regression done
+  ablation E5 Logistic Regression done
+  ablation E1 Random Forest done
+  ablation E2 Random Forest done
+  ablation E3 Random Forest done
+  ablation E4 Random Forest done
+  ablation E1 Logistic Regression done
+  ablation E2 Logistic Regression done
+  ablation E3 Logistic Regression done
+  ablation E4 Logistic Regression done
+  ablation E5 Logistic Regression done
+  ablation E1 Random Forest done
+  ablation E2 Random Forest done
+  ablation E3 Random Forest done
+  ablation E4 Random Forest done
+  ablation E5 Random Forest done
+  ablation E1 XGBoost done
+  ablation E2 XGBoost done
+  ablation E3 XGBoost done
+  ablation E4 XGBoost done
+  ablation E5 XGBoost done

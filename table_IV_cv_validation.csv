@@ -1,0 +1,5 @@
+model,best_params,cv_pr_auc_mean,cv_pr_auc_sd,val_pr_auc
+Majority reference,none,,,0.005825132903517702
+Logistic Regression,"{'C': 0.1, 'class_weight': None}",0.20495638960478138,0.012544585870795509,0.1998047153273535
+Random Forest,"{'class_weight': 'balanced', 'max_depth': None, 'min_samples_leaf': 1, 'n_estimators': 200}",0.732334653395524,0.008675900170708293,0.6870306846027275
+XGBoost,"{'learning_rate': 0.05, 'max_depth': 7, 'n_estimators': 300, 'scale_pos_weight': 1}",0.7554671918990925,0.016396429173824285,0.7029307383636988

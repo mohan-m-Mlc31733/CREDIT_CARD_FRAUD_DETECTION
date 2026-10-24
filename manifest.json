@@ -1,0 +1,212 @@
+{
+  "feature_names": [
+    "amt",
+    "amt_log",
+    "category_enc",
+    "hour",
+    "day_of_week",
+    "is_weekend",
+    "age",
+    "city_pop",
+    "distance_km",
+    "state_enc"
+  ],
+  "categories": [
+    "entertainment",
+    "food_dining",
+    "gas_transport",
+    "grocery_net",
+    "grocery_pos",
+    "health_fitness",
+    "home",
+    "kids_pets",
+    "misc_net",
+    "misc_pos",
+    "personal_care",
+    "shopping_net",
+    "shopping_pos",
+    "travel"
+  ],
+  "states": [
+    "AK",
+    "AL",
+    "AR",
+    "AZ",
+    "CA",
+    "CO",
+    "CT",
+    "DC",
+    "DE",
+    "FL",
+    "GA",
+    "HI",
+    "IA",
+    "ID",
+    "IL",
+    "IN",
+    "KS",
+    "KY",
+    "LA",
+    "MA",
+    "MD",
+    "ME",
+    "MI",
+    "MN",
+    "MO",
+    "MS",
+    "MT",
+    "NC",
+    "ND",
+    "NE",
+    "NH",
+    "NJ",
+    "NM",
+    "NV",
+    "NY",
+    "OH",
+    "OK",
+    "OR",
+    "PA",
+    "RI",
+    "SC",
+    "SD",
+    "TN",
+    "TX",
+    "UT",
+    "VA",
+    "VT",
+    "WA",
+    "WI",
+    "WV",
+    "WY"
+  ],
+  "train_rows": 1296675,
+  "test_rows": 555719,
+  "fraud_rate_pct": 0.579,
+  "category_fraud_rates": {
+    "entertainment": 0.25,
+    "food_dining": 0.17,
+    "gas_transport": 0.47,
+    "grocery_net": 0.29,
+    "grocery_pos": 1.41,
+    "health_fitness": 0.15,
+    "home": 0.16,
+    "kids_pets": 0.21,
+    "misc_net": 1.45,
+    "misc_pos": 0.31,
+    "personal_care": 0.24,
+    "shopping_net": 1.76,
+    "shopping_pos": 0.72,
+    "travel": 0.29
+  },
+  "metrics": {
+    "xgboost": {
+      "accuracy": 0.99615,
+      "precision": 0.5583,
+      "recall": 0.7363,
+      "f1": 0.6351,
+      "roc_auc": 0.9945,
+      "pr_auc": 0.6787,
+      "optimal_threshold": 0.19596,
+      "confusion_matrix": {
+        "tp": 67,
+        "fp": 53,
+        "fn": 24,
+        "tn": 19856
+      }
+    },
+    "rf": {
+      "accuracy": 0.99745,
+      "precision": 0.7326,
+      "recall": 0.6923,
+      "f1": 0.7119,
+      "roc_auc": 0.9549,
+      "pr_auc": 0.6965,
+      "optimal_threshold": 0.295,
+      "confusion_matrix": {
+        "tp": 63,
+        "fp": 23,
+        "fn": 28,
+        "tn": 19886
+      }
+    },
+    "lr": {
+      "accuracy": 0.99115,
+      "precision": 0.2584,
+      "recall": 0.5055,
+      "f1": 0.342,
+      "roc_auc": 0.8147,
+      "pr_auc": 0.2084,
+      "optimal_threshold": 0.02613,
+      "confusion_matrix": {
+        "tp": 46,
+        "fp": 132,
+        "fn": 45,
+        "tn": 19777
+      }
+    }
+  },
+  "generated_at": "2026-10-23 17:55:52",
+  "colab_run": {
+    "platform": "Google Colab Pro (GPU/High-RAM)",
+    "selected_model": "XGBoost",
+    "optimal_threshold": 0.19596052169799805,
+    "recall80_threshold": 0.08010749518871307,
+    "total_train_rows": 1296675,
+    "test_rows": 20000,
+    "ablation_completed": true,
+    "bootstrap_replications": 2000
+  },
+  "top_shap_features": [
+    {
+      "feature": "num__amt",
+      "label": "Transaction Amount ($)",
+      "importance": 2.9163
+    },
+    {
+      "feature": "cat__category_gas_transport",
+      "label": "Gas & Transportation Category",
+      "importance": 2.3042
+    },
+    {
+      "feature": "cat__category_travel",
+      "label": "Travel Booking",
+      "importance": 0.5269
+    },
+    {
+      "feature": "cat__category_grocery_pos",
+      "label": "In-store Grocery POS",
+      "importance": 0.5249
+    },
+    {
+      "feature": "cat__state_ID",
+      "label": "Cardholder State ID",
+      "importance": 0.4991
+    },
+    {
+      "feature": "cat__category_food_dining",
+      "label": "Food & Dining Outlets",
+      "importance": 0.3877
+    },
+    {
+      "feature": "cat__state_SD",
+      "label": "Cardholder State SD",
+      "importance": 0.3397
+    },
+    {
+      "feature": "num__merch_long",
+      "label": "Merchant Longitude Distance",
+      "importance": 0.3113
+    },
+    {
+      "feature": "cat__state_IA",
+      "label": "Cardholder State IA",
+      "importance": 0.2786
+    },
+    {
+      "feature": "cat__category_personal_care",
+      "label": "Personal Care Merchants",
+      "importance": 0.275
+    }
+  ]
+}

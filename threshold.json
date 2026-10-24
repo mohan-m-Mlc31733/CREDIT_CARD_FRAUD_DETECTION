@@ -1,0 +1,22 @@
+{
+  "selected_model": "XGBoost",
+  "threshold_f1": 0.19596052169799805,
+  "threshold_recall80": 0.08010749518871307,
+  "features_numeric": [
+    "amt",
+    "zip",
+    "lat",
+    "long",
+    "city_pop",
+    "merch_lat",
+    "merch_long"
+  ],
+  "features_categorical": [
+    "category",
+    "gender",
+    "state"
+  ],
+  "seed": 42,
+  "sample_frac": 0.3,
+  "fast_grid": true
+}

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Process — FraudShield Machine Learning Pipeline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shared.css">
+</head>
+<body>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Custom Responsive Mouse Pointer -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Global Top Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="logo" data-cursor="link">
+        <span class="logo-icon">🛡️</span>
+        <span class="logo-text">FraudShield</span>
+      </a>
+      <span class="badge">Pipeline v2.4</span>
+    </div>
+    <div class="nav-center">
+      <a href="index.html" class="nav-link" data-cursor="link">WHO WE ARE</a>
+      <a href="process.html" class="nav-link active" data-cursor="link">PROCESS</a>
+      <a href="services.html" class="nav-link" data-cursor="link">SERVICES</a>
+      <a href="testimonials.html" class="nav-link" data-cursor="link">TESTIMONIALS</a>
+      <a href="contact.html" class="nav-link" data-cursor="link">CONTACT</a>
+      <a href="scanner.html" class="nav-link" data-cursor="link" style="color:var(--accent-red);font-weight:700;">SCANNER</a>
+    </div>
+    <div class="nav-right">
+      <a href="login.html" class="btn-secondary" style="padding:8px 18px; font-size:0.75rem; margin-right:6px;" data-cursor="link">LOGIN</a>
+      <a href="scanner.html" class="nav-cta" data-cursor="link">START A SCAN</a>
+      <button class="nav-menu-btn" id="menuBtn" data-cursor="link" aria-label="Toggle Navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="mobile-link">WHO WE ARE</a>
+    <a href="process.html" class="mobile-link">PROCESS</a>
+    <a href="services.html" class="mobile-link">SERVICES</a>
+    <a href="testimonials.html" class="mobile-link">TESTIMONIALS</a>
+    <a href="contact.html" class="mobile-link">CONTACT</a>
+    <a href="login.html" class="mobile-link">LOGIN &rarr;</a>
+    <a href="scanner.html" class="mobile-link cta">START A SCAN ↗</a>
+  </div>
+
+  <!-- Main Section: Our Process (Directly Matching Reference Image 2) -->
+  <main class="process-section-view">
+    <div class="process-header-row" data-animate="fade-up">
+      <h1 class="process-hero-title">Our<br>Process</h1>
+      <p class="process-hero-subtitle">
+        A disciplined four step framework that eliminates guesswork and delivers predictable fraud detection accuracy.
+      </p>
+    </div>
+
+    <!-- 4 Stepped Glowing Orange/Red Process Cards (Image 2 Composition) -->
+    <div class="process-cards-stepped">
+      <!-- Card 01: Discover -->
+      <div class="process-step-item tilt-card" data-animate="fade-up" data-delay="100" data-cursor="card">
+        <div class="process-silhouette-bg process-silhouette-1"></div>
+        <div class="tilt-shine"></div>
+        <div class="process-step-number">01</div>
+        <div class="process-step-content">
+          <h3 class="process-step-title">Discover</h3>
+          <p class="process-step-desc">
+            We go deep into your transaction streams, merchant data, geographic coordinates, and behavioral frequencies to uncover anomalies that others miss.
+          </p>
+          <div class="process-metric-pill">1,296,675 Transactions Profiled</div>
+        </div>
+      </div>
+
+      <!-- Card 02: Strategize -->
+      <div class="process-step-item tilt-card" data-animate="fade-up" data-delay="200" data-cursor="card">
+        <div class="process-silhouette-bg process-silhouette-2"></div>
+        <div class="tilt-shine"></div>
+        <div class="process-step-number">02</div>
+        <div class="process-step-content">
+          <h3 class="process-step-title">Strategize</h3>
+          <p class="process-step-desc">
+            We build a precise chronological roadmap, feature engineering pipelines (geo-spatial Haversine distances, category risks), without leaking future data.
+          </p>
+          <div class="process-metric-pill">Strict Time-Based Split</div>
+        </div>
+      </div>
+
+      <!-- Card 03: Execute -->
+      <div class="process-step-item tilt-card" data-animate="fade-up" data-delay="300" data-cursor="card">
+        <div class="process-silhouette-bg process-silhouette-3"></div>
+        <div class="tilt-shine"></div>
+        <div class="process-step-number">03</div>
+        <div class="process-step-content">
+          <h3 class="process-step-title">Execute</h3>
+          <p class="process-step-desc">
+            Our algorithms benchmark XGBoost, Random Forest, and regularized Logistic Regression over 5-fold cross-validation with obsessive hyperparameter tuning.
+          </p>
+          <div class="process-metric-pill">ROC-AUC 0.995 Attained</div>
+        </div>
+      </div>
+
+      <!-- Card 04: Optimize -->
+      <div class="process-step-item tilt-card" data-animate="fade-up" data-delay="400" data-cursor="card">
+        <div class="process-silhouette-bg process-silhouette-4"></div>
+        <div class="tilt-shine"></div>
+        <div class="process-step-number">04</div>
+        <div class="process-step-content">
+          <h3 class="process-step-title">Optimize</h3>
+          <p class="process-step-desc">
+            We calibrate decision thresholds to 0.196 (peak F1) or 0.080 (80%+ recall), kill false alarms, scale real-time scoring, and report all SHAP metrics transparently.
+          </p>
+          <div class="process-metric-pill">95% Bootstrap Conf. Intervals</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Deep Dive Technical Pipeline Breakdown -->
+  <section style="background: #0a0a0a; padding: 100px 40px; border-top: 1px solid #1f1f1f;">
+    <div class="section-container">
+      <div style="text-align: center; max-width: 720px; margin: 0 auto 60px;">
+        <span style="color: var(--accent-red); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;">ENGINEERING RIGOR</span>
+        <h2 class="section-title italic" style="margin-top: 8px;">Ablation & Validation Matrix</h2>
+        <p style="color: #888; font-size: 1rem; margin-top: 12px;">
+          Every stage of the four-step framework is backed by IEEE experimental tables and empirical cross-validation.
+        </p>
+      </div>
+
+      <div style="background: #111; border: 1px solid #222; border-radius: 20px; overflow-x: auto; padding: 10px;" data-animate="fade-up">
+        <table class="results-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+          <thead>
+            <tr style="border-bottom: 1px solid #2a2a2a; color: #888; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;">
+              <th style="padding: 16px 20px;">Experiment</th>
+              <th style="padding: 16px 20px;">Model Tested</th>
+              <th style="padding: 16px 20px;">Precision</th>
+              <th style="padding: 16px 20px;">Recall</th>
+              <th style="padding: 16px 20px;">F1-Score</th>
+              <th style="padding: 16px 20px;">PR-AUC</th>
+              <th style="padding: 16px 20px;">ROC-AUC</th>
+              <th style="padding: 16px 20px;">Optimal Threshold</th>
+            </tr>
+          </thead>
+          <tbody style="font-size: 0.9rem; color: #ddd;">
+            <tr style="border-bottom: 1px solid #1c1c1c;">
+              <td style="padding: 16px 20px; font-weight: 700; color: #ff6b35;">E1 (Baseline)</td>
+              <td style="padding: 16px 20px;">XGBoost (Default 0.50)</td>
+              <td style="padding: 16px 20px;">0.700</td>
+              <td style="padding: 16px 20px;">0.462</td>
+              <td style="padding: 16px 20px;">0.556</td>
+              <td style="padding: 16px 20px;">0.679</td>
+              <td style="padding: 16px 20px;">0.995</td>
+              <td style="padding: 16px 20px;">0.500</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #1c1c1c; background: rgba(231, 76, 60, 0.08);">
+              <td style="padding: 16px 20px; font-weight: 700; color: #e74c3c;">E3 (Calibrated) ★</td>
+              <td style="padding: 16px 20px; font-weight: 700; color: #fff;">XGBoost (Optimal F1)</td>
+              <td style="padding: 16px 20px; font-weight: 700; color: #2ecc71;">0.558</td>
+              <td style="padding: 16px 20px; font-weight: 700; color: #2ecc71;">0.736</td>
+              <td style="padding: 16px 20px; font-weight: 700; color: #2ecc71;">0.635</td>
+              <td style="padding: 16px 20px; font-weight: 700; color: #2ecc71;">0.679</td>
+              <td style="padding: 16px 20px; font-weight: 700; color: #2ecc71;">0.995</td>
+              <td style="padding: 16px 20px; font-weight: 700; color: #ff6b35;">0.196</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #1c1c1c;">
+              <td style="padding: 16px 20px; font-weight: 700; color: #ff6b35;">E4 (Max-Recall)</td>
+              <td style="padding: 16px 20px;">XGBoost (Recall &ge; 80%)</td>
+              <td style="padding: 16px 20px;">0.442</td>
+              <td style="padding: 16px 20px;">0.802</td>
+              <td style="padding: 16px 20px;">0.570</td>
+              <td style="padding: 16px 20px;">0.679</td>
+              <td style="padding: 16px 20px;">0.995</td>
+              <td style="padding: 16px 20px;">0.080</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #1c1c1c;">
+              <td style="padding: 16px 20px; font-weight: 700; color: #ff6b35;">E2 (Ensemble)</td>
+              <td style="padding: 16px 20px;">Random Forest (Tuned)</td>
+              <td style="padding: 16px 20px;">0.733</td>
+              <td style="padding: 16px 20px;">0.692</td>
+              <td style="padding: 16px 20px;">0.712</td>
+              <td style="padding: 16px 20px;">0.696</td>
+              <td style="padding: 16px 20px;">0.955</td>
+              <td style="padding: 16px 20px;">0.295</td>
+            </tr>
+            <tr>
+              <td style="padding: 16px 20px; font-weight: 700; color: #ff6b35;">E5 (Linear)</td>
+              <td style="padding: 16px 20px;">Logistic Regression</td>
+              <td style="padding: 16px 20px;">0.258</td>
+              <td style="padding: 16px 20px;">0.505</td>
+              <td style="padding: 16px 20px;">0.342</td>
+              <td style="padding: 16px 20px;">0.208</td>
+              <td style="padding: 16px 20px;">0.815</td>
+              <td style="padding: 16px 20px;">0.026</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="text-align: center; margin-top: 50px;">
+        <a href="services.html" class="btn-primary magnetic" data-cursor="link">Explore What We Offer ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3 class="footer-logo">FraudShield</h3>
+        <p class="footer-desc">
+          Four disciplined steps to defend modern commerce from illicit chargebacks and automated credential testing.
+        </p>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Subscribe to Our Research Newsletter</h4>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email" class="newsletter-input" data-cursor="link">
+          <button class="newsletter-btn" data-cursor="link">Subscribe ↗</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h5>Main Pages</h5>
+        <a href="index.html" data-cursor="link">Who We Are</a>
+        <a href="process.html" data-cursor="link">Our Process</a>
+        <a href="services.html" data-cursor="link">Services & SHAP</a>
+        <a href="testimonials.html" data-cursor="link">Client Testimonials</a>
+        <a href="contact.html" data-cursor="link">Contact & Live SCANNER</a>
+      </div>
+      <div class="footer-col">
+        <h5>Pipeline Stages</h5>
+        <a href="#01" data-cursor="link">01 Discover Data</a>
+        <a href="#02" data-cursor="link">02 Feature Strategy</a>
+        <a href="#03" data-cursor="link">03 Execution Cross-Val</a>
+        <a href="#04" data-cursor="link">04 Threshold Tuning</a>
+      </div>
+      <div class="footer-col">
+        <h5>IEEE Documentation</h5>
+        <a href="#" data-cursor="link">Section III-A: Ingestion</a>
+        <a href="#" data-cursor="link">Section IV-B: Ablation</a>
+        <a href="#" data-cursor="link">Section V-C: Bootstrap CI</a>
+      </div>
+      <div class="footer-col">
+        <h5>Social Links</h5>
+        <a href="#" data-cursor="link">GitHub</a>
+        <a href="#" data-cursor="link">LinkedIn</a>
+        <a href="#" data-cursor="link">Twitter / X</a>
+      </div>
+      <div class="footer-col">
+        <h5>Have a question?</h5>
+        <div class="footer-contact">
+          <span>📞</span>
+          <div>
+            <strong>020 5691 2456</strong>
+            <small>Monday to Friday, 9am to 5pm</small>
+          </div>
+        </div>
+        <div class="footer-contact">
+          <span>📧</span>
+          <div>
+            <strong>help@fraudshield.ai</strong>
+            <small>We aim to reply in 24 hours</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-giant-text">FraudShield</div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/static-api.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

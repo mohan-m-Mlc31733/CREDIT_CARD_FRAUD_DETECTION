@@ -1,0 +1,4 @@
+partition,rows,fraud_cases,fraud_rate_%,missing_values,numeric_features,categorical_features
+train (fit),330651,1912,0.578,0,7,3
+validation,194502,1133,0.583,0,7,3
+test,20000,91,0.455,0,7,3

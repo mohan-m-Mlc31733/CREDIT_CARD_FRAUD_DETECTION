@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Kaggle datasets are too large for GitHub (>100 MB) - keep them local
+data/fraudTrain.csv
+data/fraudTest.csv
+fraudTrain.csv
+fraudTest.csv
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

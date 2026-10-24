@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Inquiries — FraudShield Enterprise Defense</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shared.css">
+  <style>
+    .contact-form-card {
+      background: #111111;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 44px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    .contact-info-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .info-card {
+      background: #141414;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 18px;
+      padding: 24px;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .info-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(231, 76, 60, 0.4);
+    }
+    .info-icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+    .info-card h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .info-card p {
+      color: #999;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    .info-card a {
+      color: var(--accent-red);
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-block;
+      margin-top: 8px;
+    }
+    .cert-badges {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .cert-badge {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Custom Responsive Mouse Pointer -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Global Top Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="logo" data-cursor="link">
+        <span class="logo-icon">&#128737;</span>
+        <span class="logo-text">FraudShield</span>
+      </a>
+      <span class="badge">Enterprise Contact</span>
+    </div>
+    <div class="nav-center">
+      <a href="index.html" class="nav-link" data-cursor="link">WHO WE ARE</a>
+      <a href="process.html" class="nav-link" data-cursor="link">PROCESS</a>
+      <a href="services.html" class="nav-link" data-cursor="link">SERVICES</a>
+      <a href="testimonials.html" class="nav-link" data-cursor="link">TESTIMONIALS</a>
+      <a href="contact.html" class="nav-link active" data-cursor="link">CONTACT</a>
+      <a href="scanner.html" class="nav-link" data-cursor="link" style="color:var(--accent-red);font-weight:700;">SCANNER</a>
+    </div>
+    <div class="nav-right">
+      <a href="login.html" class="btn-secondary" style="padding:8px 18px; font-size:0.75rem; margin-right:6px;" data-cursor="link">LOGIN</a>
+      <a href="scanner.html" class="nav-cta" data-cursor="link">START A SCAN</a>
+      <button class="nav-menu-btn" id="menuBtn" data-cursor="link" aria-label="Toggle Navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="mobile-link">WHO WE ARE</a>
+    <a href="process.html" class="mobile-link">PROCESS</a>
+    <a href="services.html" class="mobile-link">SERVICES</a>
+    <a href="testimonials.html" class="mobile-link">TESTIMONIALS</a>
+    <a href="contact.html" class="mobile-link">CONTACT</a>
+    <a href="scanner.html" class="mobile-link" style="color:var(--accent-red);">SCANNER</a>
+    <a href="login.html" class="mobile-link">LOGIN &rarr;</a>
+    <a href="scanner.html" class="mobile-link cta">START A SCAN &rarr;</a>
+  </div>
+
+  <!-- Light Ivory Header (Directly Matching Reference Image 5 Top) -->
+  <section class="contact-header-light">
+    <p class="contact-light-tagline" data-animate="fade-up">Let's build something that actually works.</p>
+    <a href="#contact-form-section" class="contact-hero-pill-btn magnetic" data-animate="fade-up" data-delay="100" data-cursor="link">
+      Contact Us &rarr;
+    </a>
+  </section>
+
+  <!-- Deep Obsidian Contact Portal (Model Playground Removed Fully) -->
+  <main class="contact-portal-dark" id="contact-form-section">
+    <div class="contact-grid-container">
+      <!-- Left Column: Enterprise Inquiry Form -->
+      <div class="contact-form-card" data-animate="fade-up">
+        <span style="color: var(--accent-red); font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Direct Channel</span>
+        <h2 style="font-size: 2.4rem; font-weight: 800; letter-spacing: -1px; margin: 10px 0 16px; color: #fff;">
+          Get in Touch
+        </h2>
+        <p style="color: #999; font-size: 0.98rem; line-height: 1.6; margin-bottom: 28px;">
+          Have questions about integrating FraudShield into your transaction flow or deploying custom machine learning models? Speak with our risk engineering team.
+        </p>
+
+        <form onsubmit="handleContactSubmit(event)" style="display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div>
+              <label class="form-label">First Name</label>
+              <input type="text" placeholder="Sarah" class="form-input-field" data-cursor="link" required>
+            </div>
+            <div>
+              <label class="form-label">Last Name</label>
+              <input type="text" placeholder="Jenkins" class="form-input-field" data-cursor="link" required>
+            </div>
+          </div>
+          <div>
+            <label class="form-label">Corporate Email</label>
+            <input type="email" placeholder="sarah.jenkins@fintech.io" class="form-input-field" data-cursor="link" required>
+          </div>
+          <div>
+            <label class="form-label">Organization / Financial Institution</label>
+            <input type="text" placeholder="Global Payments Network" class="form-input-field" data-cursor="link">
+          </div>
+          <div>
+            <label class="form-label">Inquiry Subject</label>
+            <select class="form-select-field" data-cursor="link">
+              <option selected>API Integration & Sandbox Access</option>
+              <option>Custom Model Training on Proprietary Data</option>
+              <option>Enterprise Deployment (PCI-DSS On-Premise)</option>
+              <option>Research Collaboration / IEEE Citation</option>
+              <option>Security & Compliance Audit</option>
+            </select>
+          </div>
+          <div>
+            <label class="form-label">Message Details</label>
+            <textarea rows="4" placeholder="Tell us about your transaction volume, existing fraud challenges, and timeline..." class="form-input-field" style="resize: vertical;" data-cursor="link" required></textarea>
+          </div>
+          <button type="submit" class="btn-scan-trigger magnetic" data-cursor="link" style="margin-top: 8px;">
+            Send Inquiry &rarr;
+          </button>
+          <div id="contactSuccessMsg" style="display:none; color: #2ecc71; font-size: 0.9rem; font-weight: 600; text-align: center; margin-top: 8px;">
+            Thank you! Your message has been routed to our Risk Engineering Team. We will reply within 24 hours.
+          </div>
+        </form>
+      </div>
+
+      <!-- Right Column: Enterprise Support & Direct Details -->
+      <div class="contact-info-panel" data-animate="fade-up" data-delay="100">
+        <div class="info-card">
+          <div class="info-icon">&#128222;</div>
+          <h4>Direct Support Line</h4>
+          <p>Available for critical incident response and production payment gateway integrations.</p>
+          <a href="tel:02056912456" data-cursor="link">+44 (020) 5691 2456</a>
+          <p style="font-size: 0.78rem; color: #666; margin-top: 4px;">Monday to Friday, 9:00 AM – 5:00 PM UTC</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">&#128233;</div>
+          <h4>Risk & Security Inquiries</h4>
+          <p>Reach out directly to our threat response and machine learning architects.</p>
+          <a href="mailto:help@fraudshield.ai" data-cursor="link">help@fraudshield.ai</a>
+          <br>
+          <a href="mailto:press@growthlab.com" data-cursor="link" style="color: #aaa; font-size: 0.85rem;">press@growthlab.com</a>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">&#128737;</div>
+          <h4>Compliance & Security Assurances</h4>
+          <p>All models operate under zero data-retention policies for sensitive cardholder credentials.</p>
+          <div class="cert-badges">
+            <span class="cert-badge">PCI-DSS Level 1</span>
+            <span class="cert-badge">SOC-2 Type II</span>
+            <span class="cert-badge">ISO 27001</span>
+            <span class="cert-badge">AES-256 Encrypted</span>
+          </div>
+        </div>
+
+        <div class="info-card" style="background: linear-gradient(135deg, rgba(231,76,60,0.1), rgba(255,107,53,0.05)); border-color: rgba(231,76,60,0.3);">
+          <div class="info-icon">&#9889;</div>
+          <h4>Ready to Scan Live Transactions?</h4>
+          <p>Test individual payments against our trained XGBoost and Random Forest pipelines immediately.</p>
+          <a href="scanner.html" class="btn-primary" style="margin-top: 14px; padding: 10px 24px; font-size: 0.8rem;" data-cursor="link">
+            Launch AI SCANNER</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Complete Multi-Column Footer (Matching Reference Image 5) -->
+  <footer class="footer" style="padding-top: 60px;">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3 class="footer-logo">FraudShield</h3>
+        <p class="footer-desc">
+          FraudShield is a modern agency focused on building defense systems through strategy, design, and machine learning that drive clarity, consistency, and real growth.
+        </p>
+      </div>
+
+      <div class="footer-newsletter">
+        <h4>Subscribe to Our Newsletter</h4>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email" class="newsletter-input" data-cursor="link">
+          <button class="newsletter-btn" data-cursor="link">Subscribe &rarr;</button>
+        </div>
+        <p class="newsletter-note">No spam. Just great content.</p>
+      </div>
+    </div>
+
+    <!-- 6 Column Links Grid from Reference Image 5 -->
+    <div class="footer-links">
+      <div class="footer-col">
+        <h5>Main Pages</h5>
+        <a href="index.html" data-cursor="link">About</a>
+        <a href="process.html" data-cursor="link">Work</a>
+        <a href="services.html" data-cursor="link">Services</a>
+        <a href="scanner.html" data-cursor="link">Live SCANNER</a>
+        <a href="testimonials.html" data-cursor="link">Blog</a>
+        <a href="contact.html" data-cursor="link">Career</a>
+        <a href="contact.html" data-cursor="link">Contact</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>CMS Pages</h5>
+        <a href="services.html" data-cursor="link">Work Details</a>
+        <a href="testimonials.html" data-cursor="link">Blog Details</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Utility Pages</h5>
+        <a href="index.html" data-cursor="link">404</a>
+        <a href="process.html" data-cursor="link">Coming Soon</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="#" data-cursor="link">Privacy Policy</a>
+        <a href="#" data-cursor="link">Terms & Conditions</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Social Links</h5>
+        <a href="#" data-cursor="link">Facebook</a>
+        <a href="#" data-cursor="link">Instagram</a>
+        <a href="#" data-cursor="link">Twitter / X</a>
+        <a href="#" data-cursor="link">LinkedIn</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Support & Inquiries</h5>
+        <div class="footer-contact">
+          <span>&#128222;</span>
+          <div>
+            <strong>020 5691 2456</strong>
+            <small>Monday to Friday, 9am to 5pm</small>
+          </div>
+        </div>
+        <div class="footer-contact">
+          <span>&#128172;</span>
+          <div>
+            <strong>help@GrowthLab.com</strong>
+            <small>We aim to reply in 24 hours</small>
+          </div>
+        </div>
+        <div class="footer-contact">
+          <span>&#9993;</span>
+          <div>
+            <strong>press@GrowthLab.com</strong>
+            <small>Press and media inquiries</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Giant Glowing Red Typography matching GrowthLab in Image 5 -->
+    <div class="footer-giant-glow">
+      <div class="footer-massive-brand">GrowthLab</div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/static-api.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      document.getElementById('contactSuccessMsg').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

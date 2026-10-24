@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trusted by Happy Clients — FraudShield Testimonials & Reviews</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shared.css">
+</head>
+<body>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Custom Responsive Mouse Pointer -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Global Top Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="logo" data-cursor="link">
+        <span class="logo-icon">🛡️</span>
+        <span class="logo-text">FraudShield</span>
+      </a>
+      <span class="badge">Audited & Verified</span>
+    </div>
+    <div class="nav-center">
+      <a href="index.html" class="nav-link" data-cursor="link">WHO WE ARE</a>
+      <a href="process.html" class="nav-link" data-cursor="link">PROCESS</a>
+      <a href="services.html" class="nav-link" data-cursor="link">SERVICES</a>
+      <a href="testimonials.html" class="nav-link active" data-cursor="link">TESTIMONIALS</a>
+      <a href="contact.html" class="nav-link" data-cursor="link">CONTACT</a>
+      <a href="scanner.html" class="nav-link" data-cursor="link" style="color:var(--accent-red);font-weight:700;">SCANNER</a>
+    </div>
+    <div class="nav-right">
+      <a href="login.html" class="btn-secondary" style="padding:8px 18px; font-size:0.75rem; margin-right:6px;" data-cursor="link">LOGIN</a>
+      <a href="scanner.html" class="nav-cta" data-cursor="link">START A SCAN</a>
+      <button class="nav-menu-btn" id="menuBtn" data-cursor="link" aria-label="Toggle Navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="mobile-link">WHO WE ARE</a>
+    <a href="process.html" class="mobile-link">PROCESS</a>
+    <a href="services.html" class="mobile-link">SERVICES</a>
+    <a href="testimonials.html" class="mobile-link">TESTIMONIALS</a>
+    <a href="contact.html" class="mobile-link">CONTACT</a>
+    <a href="login.html" class="mobile-link">LOGIN &rarr;</a>
+    <a href="scanner.html" class="mobile-link cta">START A SCAN ↗</a>
+  </div>
+
+  <!-- Main View: Testimonials (Strictly Matching Reference Image 4) -->
+  <main class="testimonials-view">
+    <!-- Futuristic cyber backdrop with animated canvas & ambient glow -->
+    <canvas id="particleCanvas" style="position: absolute; inset: 0; pointer-events: none; z-index: 1;"></canvas>
+    <div class="testimonials-backdrop-glow"></div>
+
+    <div class="testimonials-center-heading" data-animate="fade-up">
+      <h2>Trusted by<br>Happy Clients</h2>
+      <p>Discover how our design solutions and machine learning pipelines have made a lasting impact on businesses just like yours.</p>
+    </div>
+
+    <!-- Floating Testimonial Cards Layout (Image 4 Composition) -->
+    <div class="testimonials-floating-grid">
+      <!-- Card 1: Michael Torres -->
+      <div class="testimonial-float-card tilt-card" data-animate="fade-up" data-delay="100" data-cursor="card">
+        <div class="tilt-shine"></div>
+        <div>
+          <div class="card-stars-red">★★★★★</div>
+          <p class="card-quote-body">
+            "I was terrified to start our risk infrastructure migration — card theft was scaling rapidly and I had no idea where to begin. But FraudShield walked us through every single model decision with patience, clarity, and real data science expertise."
+          </p>
+          <p class="card-highlight-block">
+            "They answered all my questions, no matter how small, and never made me feel rushed or pressured. False positives dropped by 85%."
+          </p>
+        </div>
+        <div class="card-user-meta">
+          <div class="card-user-avatar" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">MT</div>
+          <div class="card-user-info">
+            <strong>Michael Torres</strong>
+            <span>VP of Risk, Austin, TX</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: VEERARAGAV R -->
+      <div class="testimonial-float-card tilt-card" data-animate="fade-up" data-delay="200" data-cursor="card">
+        <div class="tilt-shine"></div>
+        <div>
+          <div class="card-stars-red">★★★★★</div>
+          <p class="card-quote-body">
+            "I had been searching for months without success before deploying FraudShield. They quickly understood what I was looking for and helped me find the perfect operating threshold within our tight compliance SLA."
+          </p>
+          <p class="card-highlight-block">
+            "Every concern I raised was addressed thoughtfully, giving me confidence at every stage of our production journey."
+          </p>
+        </div>
+        <div class="card-user-meta">
+          <div class="card-user-avatar" style="background: linear-gradient(135deg, #3498db, #2980b9);">VR</div>
+          <div class="card-user-info">
+            <strong>VEERARAGAV R</strong>
+            <span>Product Manager, SecurePay</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Dr. Mohan Mekala -->
+      <div class="testimonial-float-card tilt-card" data-animate="fade-up" data-delay="300" data-cursor="card">
+        <div class="tilt-shine"></div>
+        <div>
+          <div class="card-stars-red">★★★★★</div>
+          <p class="card-quote-body">
+            "The chronological splitting framework and bootstrap confidence interval analysis guarantee reproducibility. Out of 1.3 million historical events, their XGBoost architecture consistently defended the lowest false discovery rates."
+          </p>
+          <p class="card-highlight-block">
+            "The SHAP interpretability module elevates this project into true IEEE publication excellence."
+          </p>
+        </div>
+        <div class="card-user-meta">
+          <div class="card-user-avatar" style="background: linear-gradient(135deg, #2ecc71, #27ae60);">MM</div>
+          <div class="card-user-info">
+            <strong>Dr. Mohan Mekala</strong>
+            <span>Lead IEEE ML Researcher</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Interactive Trust Banner -->
+  <section style="background: #0d0d0d; padding: 80px 40px; border-top: 1px solid #1a1a1a; text-align: center;">
+    <div class="section-container">
+      <h3 style="font-size: 2rem; font-weight: 800; margin-bottom: 12px; color: #fff;">Ready to Eliminate Transaction Fraud?</h3>
+      <p style="color: #888; max-width: 500px; margin: 0 auto 30px;">
+        Join over 360+ payment gateways, fintechs, and credit card issuers protected by FraudShield algorithms.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+        <a href="contact.html" class="btn-primary magnetic" data-cursor="link">Launch Live Scanner ↗</a>
+        <a href="process.html" class="btn-secondary magnetic" data-cursor="link">Inspect Model Architecture ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3 class="footer-logo">FraudShield</h3>
+        <p class="footer-desc">
+          Loved by risk managers, audit executives, and data science leaders globally.
+        </p>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Subscribe to Our Research Newsletter</h4>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email" class="newsletter-input" data-cursor="link">
+          <button class="newsletter-btn" data-cursor="link">Subscribe ↗</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h5>Main Pages</h5>
+        <a href="index.html" data-cursor="link">Who We Are</a>
+        <a href="process.html" data-cursor="link">Our Process</a>
+        <a href="services.html" data-cursor="link">Services & SHAP</a>
+        <a href="testimonials.html" data-cursor="link">Client Testimonials</a>
+        <a href="contact.html" data-cursor="link">Contact & Live SCANNER</a>
+      </div>
+      <div class="footer-col">
+        <h5>Client Stories</h5>
+        <a href="#" data-cursor="link">Michael Torres (FinTech)</a>
+        <a href="#" data-cursor="link">VEERARAGAV R (SecurePay)</a>
+        <a href="#" data-cursor="link">Dr. Mohan Mekala (IEEE)</a>
+      </div>
+      <div class="footer-col">
+        <h5>Social Proof</h5>
+        <a href="#" data-cursor="link">99.6% Accuracy</a>
+        <a href="#" data-cursor="link">361+ Five-Star Reviews</a>
+        <a href="#" data-cursor="link">1.3M+ Audited Events</a>
+      </div>
+      <div class="footer-col">
+        <h5>Social Links</h5>
+        <a href="#" data-cursor="link">GitHub</a>
+        <a href="#" data-cursor="link">LinkedIn</a>
+        <a href="#" data-cursor="link">Twitter / X</a>
+      </div>
+      <div class="footer-col">
+        <h5>Have a question?</h5>
+        <div class="footer-contact">
+          <span>📞</span>
+          <div>
+            <strong>020 5691 2456</strong>
+            <small>Monday to Friday, 9am to 5pm</small>
+          </div>
+        </div>
+        <div class="footer-contact">
+          <span>📧</span>
+          <div>
+            <strong>help@fraudshield.ai</strong>
+            <small>We aim to reply in 24 hours</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-giant-text">FraudShield</div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/static-api.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
